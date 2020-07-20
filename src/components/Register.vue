@@ -71,6 +71,7 @@
 </template>
 
 <script>
+import firebase from "firebase/app";
 export default {
   data() {
     return {
@@ -81,6 +82,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["signUpAction"]),
     resetError() {
       this.validationErrors = [];
     },
@@ -108,7 +110,7 @@ export default {
       }
     },
     signUp() {
-      console.log("sign up", this.email, this.password);
+         this.signUpAction({ email: this.email, password: this.password });
     }
   }
 };

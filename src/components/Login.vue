@@ -68,6 +68,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions(["signInAction"]),
     resetError() {
       this.validationErrors = [];
     },
@@ -92,7 +93,7 @@ export default {
       }
     },
     signIn() {
-      console.log("sign in", this.email, this.password);
+      this.signInAction({ email: this.email, password: this.password });
     }
   }
 };
